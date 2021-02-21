@@ -1,5 +1,9 @@
 pragma solidity 0.7.5; 
 
+import {SafeMath} from "./SafeMath.sol";
+
+
+
 contract TimeLockOverFlow {
    
     mapping(address => uint) public balances; 
@@ -20,5 +24,34 @@ contract TimeLockOverFlow {
           then call withdraw to withdraw the money 
         */
         lockTime[msg.sender] += _secondsToIncrease;
+    }
+}
+
+contract TokenBalanceUnderFlow {
+    using SafeMath for uint;
+    mapping(address => uint) balances;
+    uint public totalSupply; 
+
+    constructor(uint _intialSupply) {
+      totalSupply = _intialSupply;
+       balances[msg.sender] = _intialSupply;
+    }
+
+    /**
+      Vulnerability ALERT!!
+      The require statement can be bypassed by using an underflow 
+      A user with 0 balance can call the function with a _value greater than 0 
+      the subtraction with underflow and result in a value greater than 0 bypassing the require statemet
+      (balance is a uint256 and value is 0)
+     */
+    function transfer(address _to, uint _value) public returns (bool) {
+        require(balances[msg.sender] - _value >= 0);
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+        return true;
+    }
+
+    function balancesOf(address _owner) public view returns(uint balance) {
+        return balances[_owner];
     }
 }
