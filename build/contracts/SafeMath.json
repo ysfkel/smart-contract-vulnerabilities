@@ -26,15 +26,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"add\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yusuf/Documents/Developer/workspaces/ethereum-projects/mastering-ethereum/reentrancy/contracts/SafeMath.sol\":\"SafeMath\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yusuf/Documents/Developer/workspaces/ethereum-projects/mastering-ethereum/reentrancy/contracts/SafeMath.sol\":{\"keccak256\":\"0xad9f77a8a2e175e13a4061b2f2159f7a10d6187375a5f8f3e9e87191154f8026\",\"urls\":[\"bzz-raw://87d57c007f8c0d7854ff701ccbd69a81ca5d3854f0b7cb661b185b8c65ffafa4\",\"dweb:/ipfs/QmZFn1AvAZaCWoVF3NRuGvGj5gkcx8VZYRUeYZWat5Qm6F\"]}},\"version\":1}",
-  "bytecode": "0x60d2610025600b82828239805160001a60731461001857fe5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361060335760003560e01c8063771602f7146038575b600080fd5b606b60048036036040811015604c57600080fd5b8101908080359060200190929190803590602001909291905050506081565b6040518082815260200191505060405180910390f35b600080828401905083811015609257fe5b809150509291505056fea2646970667358221220fd32aa3dce83e94c30fc157332a66f53312c7a3c0918888f5eeeb80ff3314b2664736f6c63430007050033",
-  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361060335760003560e01c8063771602f7146038575b600080fd5b606b60048036036040811015604c57600080fd5b8101908080359060200190929190803590602001909291905050506081565b6040518082815260200191505060405180910390f35b600080828401905083811015609257fe5b809150509291505056fea2646970667358221220fd32aa3dce83e94c30fc157332a66f53312c7a3c0918888f5eeeb80ff3314b2664736f6c63430007050033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.5+commit.eb77ed08\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"b\",\"type\":\"uint256\"}],\"name\":\"add\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yusuf/Documents/Developer/workspaces/ethereum-projects/mastering-ethereum/reentrancy/contracts/SafeMath.sol\":\"SafeMath\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yusuf/Documents/Developer/workspaces/ethereum-projects/mastering-ethereum/reentrancy/contracts/SafeMath.sol\":{\"keccak256\":\"0x00bf53e3ba54f6fb34f81565b137bd742b8c8b79a4381bdbe70d2695b3dbea8d\",\"urls\":[\"bzz-raw://6be65fae843641a7697887d504551e8f6d0c0df31db2ab965d6ce48de043ca46\",\"dweb:/ipfs/QmXn6uLKLHpXYDzdY33vnsMVB9XccCUqNskfYYKU4KHUAU\"]}},\"version\":1}",
+  "bytecode": "0x60d2610025600b82828239805160001a60731461001857fe5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361060335760003560e01c8063771602f7146038575b600080fd5b606b60048036036040811015604c57600080fd5b8101908080359060200190929190803590602001909291905050506081565b6040518082815260200191505060405180910390f35b600080828401905083811015609257fe5b809150509291505056fea2646970667358221220dc57134455cd33e97f41287964717363091d1345f449f613f091ebd1698aeb9864736f6c63430007050033",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361060335760003560e01c8063771602f7146038575b600080fd5b606b60048036036040811015604c57600080fd5b8101908080359060200190929190803590602001909291905050506081565b6040518082815260200191505060405180910390f35b600080828401905083811015609257fe5b809150509291505056fea2646970667358221220dc57134455cd33e97f41287964717363091d1345f449f613f091ebd1698aeb9864736f6c63430007050033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "24:171:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "24:171:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;49:144;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;104:7;124:9;140:1;136;:5;124:17;;164:1;159;:6;;152:14;;;;184:1;177:8;;;49:144;;;;:::o",
-  "source": "pragma solidity 0.7.5;\n\nlibrary SafeMath {\n\n     function add(uint256 a,uint256  b) public pure returns(uint256) {\n         uint256 c = a + b;\n         assert(c >= a);\n         return c;\n     }\n}",
+  "sourceMap": "24:172:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "24:172:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;49:144;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;104:7;124:9;140:1;136;:5;124:17;;164:1;159;:6;;152:14;;;;184:1;177:8;;;49:144;;;;:::o",
+  "source": "pragma solidity 0.7.5;\n\nlibrary SafeMath {\n\n     function add(uint256 a,uint256  b) public pure returns(uint256) {\n         uint256 c = a + b;\n         assert(c >= a);\n         return c;\n     }\n\n}",
   "sourcePath": "/Users/yusuf/Documents/Developer/workspaces/ethereum-projects/mastering-ethereum/reentrancy/contracts/SafeMath.sol",
   "ast": {
     "absolutePath": "/Users/yusuf/Documents/Developer/workspaces/ethereum-projects/mastering-ethereum/reentrancy/contracts/SafeMath.sol",
@@ -363,10 +363,10 @@
           }
         ],
         "scope": 452,
-        "src": "24:171:4"
+        "src": "24:172:4"
       }
     ],
-    "src": "0:195:4"
+    "src": "0:196:4"
   },
   "legacyAST": {
     "absolutePath": "/Users/yusuf/Documents/Developer/workspaces/ethereum-projects/mastering-ethereum/reentrancy/contracts/SafeMath.sol",
@@ -695,10 +695,10 @@
           }
         ],
         "scope": 452,
-        "src": "24:171:4"
+        "src": "24:172:4"
       }
     ],
-    "src": "0:195:4"
+    "src": "0:196:4"
   },
   "compiler": {
     "name": "solc",
@@ -706,7 +706,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.2",
-  "updatedAt": "2021-02-21T12:50:28.275Z",
+  "updatedAt": "2021-02-21T13:09:01.264Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
