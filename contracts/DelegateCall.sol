@@ -14,8 +14,16 @@ pragma solidity 0.7.5;
 
    Incorrect State variables mapping between FibonacciBalance and Fibonacci
 
-   The Fibonacci contract . It has two state variables , start and calculatedFibNumber.The first variable,start,is stored in th econtract’s storageatslot[0](i.e.,the firstslot).
-   The secondvariable, calculatedFibNumber, is placed in the next available storage slot, slot[1]
+   The Fibonacci has two state variables , start and calculatedFibNumber.The first variable,start,is stored in th econtract’s storageatslot[0]
+   (i.e.,the first slot).The secondvariable, calculatedFibNumber, is placed in the next available storage slot, slot[1]
+
+    FibonacciBalance contract.Storage slot[0] now corresponds to the fibonacci contract address, 
+   and slot[1] corresponds to calculatedFibNumber. It is in this incorrect mapping that the vulnerability occurs
+
+   Preventive Techniques:
+   provides the library keyword for implementing library contracts (see the docs for further details). 
+   This ensures the library contract is stateless a n d non-self-destructable.
+    Forcing libraries to be stateless mitigates the complexities of storage context demonstrated in this section. Stateless libraries also prevent attacks wherein attackers modify the state of the library directly in order to affect the contracts that depend on the library’s code. As a general rule of thumb, w h e n using DELEGATECALL pay careful attention to the possible calling context of both the library contract and the calling contract, and whenever possible build stateless libraries.
 
  */
 
@@ -63,7 +71,7 @@ contract FibonacciBalance {
        msg.sender.transfer(calculatedFibNumber * 1 ether);
    }
 
-   function() external payable {
+   receive() external payable {
        /**
          VULNERABILITY ALERT!!
          Any one can call any function on fibonacci
@@ -71,5 +79,48 @@ contract FibonacciBalance {
        require(fibonacci.delegatecall(msg.data));
    }
 
+
+}
+
+
+// 2 VULNERABLE WALLET 
+
+contract WalletLibrary {
+     address owner;
+
+     // called by constructor
+     function initWallet(address _owner) {
+         owner = _owner;
+         // ... more setup ...
+     }
+
+     function changeOwner(address _new_owner) external {
+         if (msg.sender == owner) {
+             owner = _new_owner;
+         }
+     }
+
+     function () payable {
+         // ... receive money, log events, ...
+     }
+
+     function withdraw(uint amount) external returns (bool success) {
+         if (msg.sender == owner) {
+             return owner.send(amount);
+         } else {
+             return false;
+         }
+     }
+}
+
+contract Attack  { 
+    uint storageSlot0; 
+    uint storageSlot1;
+
+    function() public { 
+        storageSlot1 = 0;
+        //<attacker_address>.transfer(this.balance);
+    }
+    
 
 }

@@ -1,0 +1,1 @@
+https://securityboulevard.com/2018/06/breaking-randomness-in-the-ethereum-universe-part-1/
