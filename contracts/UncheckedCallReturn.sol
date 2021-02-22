@@ -1,11 +1,21 @@
 pragma solidity 0.7.5;
 
 contract UncheckedCallReturn {
+   
+   bool public payedOut = false;
+   address public winner;
+   uint public winAmount;
+   function sendToWinner() public {
+       require(!payedOut);
+       //VULNERABILITY ALERT!
+       //Send fail is not handled
+       winner.send(winAmount);
+       payedOut = true;
+   }
 
-     function add(uint256 a,uint256  b) public pure returns(uint256) {
-         uint256 c = a + b;
-         assert(c >= a);
-         return c;
-     }
+   function withdrawLeftOver() public {
+       require(payedOut);
+       msg.sender.send(this.balance);
+   }
 
 }

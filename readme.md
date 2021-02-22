@@ -11,5 +11,7 @@ https://github.com/LeastAuthority/ethereum-analyses/blob/master/GasEcon.md#calls
 
 https://mc2-umd.github.io/ethereumlab/docs/serpent_tutorial.pdf
 
-<address>.send callstack error
+https://securityboulevard.com/2018/06/breaking-randomness-in-the-ethereum-universe-part-1/
+
+<address>.send callstack error </br>
 https://docs.soliditylang.org/en/stable/types.html#members-of-addresses
